@@ -1,0 +1,20 @@
+{
+  "name": "mc-bot-electron",
+  "version": "1.0.0",
+  "description": "An MC BOT attacker built with electron!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^19.0.1",
+    "electron-packager": "^15.5.1"
+  },
+  "dependencies": {
+    "mineflayer": "^4.3.0",
+    "mineflayer-pathfinder": "^2.1.1"
+  }
+}
