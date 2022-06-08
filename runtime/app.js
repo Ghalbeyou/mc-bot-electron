@@ -25,10 +25,10 @@ exports.SetupForm  = function(){
          }
          var port = document.getElementById('password');
          var version = document.getElementById('version');
-         let second = 1;
+         // let second = 1;
          var inve = setInterval(() => {
             create(ip.value, port.value, version.value);
-         }, 1);
+         }, 300);
          setTimeout(() => {
             clearInterval(inve);
 

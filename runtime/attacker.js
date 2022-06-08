@@ -14,6 +14,7 @@ function makeid() {
   }
   
 exports.create = function createBot(ip, port, version) {
+   var logger = document.getElementById('log');
    const bot = mineflayer.createBot({
       username: makeid(),
       password: "",
@@ -29,9 +30,9 @@ exports.create = function createBot(ip, port, version) {
    bot.settings.colorsEnabled = false;
 
    bot.once('spawn', () => {
-      console.log('\x1b[33m[BotLog] Bot joined to the server', '\x1b[0m');
 
-         console.log('[INFO] Started auto-auth module');
+      logger.innerHTML = "[BotLog] Bot joined to the server\n";
+         logger.innerHTML = '[INFO] Started auto-auth module';
 
          var password = "123456"
          setTimeout(() => {
@@ -39,7 +40,7 @@ exports.create = function createBot(ip, port, version) {
             bot.chat(`/login ${password}`);
          }, 500);
 
-         console.log(`[Auth] Authentification commands executed.`);
+         logger.innerHTML = `[Auth] Authentification commands executed.`;
       
 
       const pos = {    "enabled": false,
@@ -47,9 +48,9 @@ exports.create = function createBot(ip, port, version) {
       "y": 0,
       "z": 0};
 
-         console.log(
-            `\x1b[32m[BotLog] Starting moving to target location (${pos.x}, ${pos.y}, ${pos.z})\x1b[0m`
-         );
+         logger.innerHTML=
+            `[BotLog] Starting moving to target location (${pos.x}, ${pos.y}, ${pos.z})`
+         ;
          bot.pathfinder.setMovements(defaultMove);
          bot.pathfinder.setGoal(new GoalBlock(pos.x, pos.y, pos.z));
 
@@ -58,20 +59,16 @@ exports.create = function createBot(ip, port, version) {
 
 
    bot.on('death', () => {
-      console.log(
-         `\x1b[33m[BotLog] Bot has been died and was respawned ${bot.entity.position}`,
-         '\x1b[0m'
-      );
+      logger.innerHTML = "[BotLog] Bot died";
    });
 
    bot.on('kicked', (reason) =>
-      console.log(
-         '\x1b[33m',
-         `[BotLog] Bot was kicked from the server. Reason: \n${reason}`,
-         '\x1b[0m'
-      )
+    // bot kicked
+      logger.innerHTML = `[BotLog] Bot kicked: ${reason}`
    );
    bot.on('error', (err) =>
-      console.log(`\x1b[31m[ERROR] ${err.message}`, '\x1b[0m')
+      // bot error      
+      logger.innerHTML = `[BotLog] Bot error: ${err}`
+      
    );
 }
