@@ -1,4 +1,7 @@
 # Minecraft Bot Electron (<b>BETA</b>)
+THIS PROJECT IS NOT UPDATED ANYMORE.
+
+
 ![](https://img.shields.io/github/license/Ghalbeyou/mc-bot-electron)
 ![](https://img.shields.io/discord/848844159419023410?color=green&label=Discord)
 ![](https://img.shields.io/github/size/Ghalbeyou/mc-bot-electron/index.js)
